@@ -2,6 +2,12 @@
 
 This is a basic blog application built with Ruby on Rails as part of The Odin Project curriculum. It’s my first ever Rails app, and I expanded a bit beyond the assignment by adding some custom styling to enhance the user experience. The app allows you to create, edit, and delete blog posts and add comments. 
 
+![Home Screen](app/assets/images/home_screen.png)
+
+---
+
+![Show Post](app/assets/images/create_page.png)
+
 ## Running the App
 
 1. **Clone the repository:**
