@@ -3,13 +3,19 @@
 <ul class="welcome__article__container">
   <h3>Articles:</h3>
     <% @articles.each do |article| %>
-      <li>
+      <li class="welcome__article__title__line">
         <%= link_to article.title, article %>
+        <%= link_to article_path(article), data: {
+          turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, class: "delete-link" do %>
+          <i class="fa-regular fa-trash-can" id="trash-can"></i>
+        <% end %>
       </li>
     <% end %>
 </ul>
 
-<button>
+<button class='button'>
 <%= link_to "New Article", new_article_path %>
 
 </button>

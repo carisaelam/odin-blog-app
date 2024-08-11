@@ -1,18 +1,39 @@
-<h1> <%= @article.title %> </h1>
-<p> <%= @article.body %> </p>
+<div class="article__container">
+  <h1> <%= @article.title %> </h1>
+  <div class="article__body__container">
+    <p> <%= @article.body %> </p>
+  </div>
+  
+  <ul class="show__page__links">
+    <li><%= link_to root_path, class:"home-link" do %>
+      <i class="fa-regular fa-circle-left"></i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to edit_article_path, class: "edit-link" do %>
+      <i class="fa-regular fa-pen-to-square"></i>
+      <% end %>
+      </li>
+    <li>
+      <%= link_to article_path(@article), data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+          }, class: "delete-link" do %>
+            <i class="fa-regular fa-trash-can" id="trash-can"></i>
+          <% end %>
+    </li>
+  </ul>
+</div>
 
-<ul>
-  <li><%= link_to 'Home', root_path %></li>
-  <li><%= link_to 'Edit', edit_article_path %></li>
-  <li><%= link_to 'Destroy', article_path(@article), data: {
-                      turbo_method: :delete,
-                      turbo_confirm: "Are you sure?"
-                    } %></li>
-</ul>
 
-
-<h2>Comments</h2>
-<%= render @article.comments %>
-
-<h2>Add a comment</h2>
-<%= render "comments/form", article: @article %>
+<div class="comments__container">
+  <h2>Comments</h2>
+  <h3>Add a comment</h3>
+  <%= render "comments/form", article: @article %>
+  
+  <% if @article.comments.any? %>
+    <%= render @article.comments %>
+  <% end %>
+  
+  
+</div>
