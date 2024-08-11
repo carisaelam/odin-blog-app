@@ -8,16 +8,18 @@
     <%= csp_meta_tag %>
 
     <%= yield :head %>
+    <%= stylesheet_link_tag '/Users/carisaelam/odin-repos/rails/blog/app/assets/stylesheets/application.css' %>
 
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Space+Grotesk:300,regular,500,600,700" rel="stylesheet" />
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container"><%= yield %></div>
   </body>
 </html>
