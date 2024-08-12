@@ -12,14 +12,11 @@ FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 WORKDIR /rails
 
 # Install base packages
+# Install base packages
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y \
-      curl \
-      libjemalloc2 \
-      libsqlite3-0 \
-      libvips \
-      libpq-dev && \  # Install PostgreSQL client libraries
+    apt-get install --no-install-recommends -y curl libjemalloc2 libsqlite3-0 libvips libpq-dev && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
 
 # Set production environment
 ENV RAILS_ENV="production" \
